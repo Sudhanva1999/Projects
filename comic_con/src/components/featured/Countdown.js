@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react"
-import Slide from "react-awesome-reveal"
+import React, { useState, useEffect, useCallback } from "react";
+import Slide from "react-awesome-reveal";
 
 const Countdown = () => {
+
     const [time, setTime] = useState({
         days: '0',
         hours: '0',
@@ -10,7 +11,9 @@ const Countdown = () => {
     })
 
     const getTimeUntil = useCallback((deadline) => {
+
         const time = Date.parse(deadline) - Date.parse(new Date());
+
         if (time < 0) {
             console.log("Date has passed");
         } else {
@@ -29,16 +32,17 @@ const Countdown = () => {
 
     useEffect(() => {
         setInterval(() => getTimeUntil('Nov, 20, 2023, 01:20:00'), 1000)
-
     }, [getTimeUntil])
 
     const renderItem = (time, value) => {
         return (
             <div className="countdown_item">
-                <div className="countdown_time">
+                <div
+                    className="countdown_time">
                     {time}
                 </div>
-                <div className="countdown_tag">
+                <div
+                    className="countdown_tag">
                     {value}
                 </div>
             </div>
@@ -46,12 +50,16 @@ const Countdown = () => {
     }
 
     return (
-        <Slide left delay={1000}>
+        <Slide
+            left delay={1000}
+            triggerOnce
+        >
             <div className="countdown_wrapper">
                 <div className="countdown_top">
                     Event Starts In
                 </div>
-                <div className="countdown_bottom">
+                <div
+                    className="countdown_bottom">
                     {renderItem(time.days, 'Days')}
                     {renderItem(time.hours, 'Hours')}
                     {renderItem(time.minutes, 'Minutes')}

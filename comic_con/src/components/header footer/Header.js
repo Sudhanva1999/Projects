@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { AppBar, Toolbar, IconButton } from "@mui/material"
+import { AppBar, Toolbar, IconButton } from "@mui/material";
 import MenuIcon from '@mui/icons-material/Menu';
-import SideDrawer from "./SideDrawer"
+import SideDrawer from "./SideDrawer";
 
 const Header = () => {
+
     const [drawerOpen, setDrawerOpen] = useState(false);
     const [atTheTop, setAtTheTop] = useState(true);
 
@@ -44,14 +45,12 @@ const Header = () => {
                     onClick={() => toggleDrawer(true)}
                 >
                     <MenuIcon />
-
                 </IconButton>
 
                 <SideDrawer
                     open={drawerOpen}
                     onClose={(value) => toggleDrawer(value)}
                 />
-
             </Toolbar>
         </AppBar>
     );
